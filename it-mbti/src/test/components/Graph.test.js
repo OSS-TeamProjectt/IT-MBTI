@@ -4,21 +4,20 @@ import Graph from '../../components/Graph';
 
 describe('Graph Component', () => {
   test('Verify that components are rendered normally', () => {
-    const scores = [['Frontend', 7.5], ['Backend', 5]];
+    const scores = [['Frontend Developer', 15], ['Backend Developer', 10]];
 
     render(<Graph scores={scores} />);
 
-    expect(screen.getByText('Frontend')).toBeInTheDocument();
-    expect(screen.getByText('Backend')).toBeInTheDocument();
+    expect(screen.getByText('Frontend Developer')).toBeInTheDocument();
+    expect(screen.getByText('Backend Developer')).toBeInTheDocument();
   });
 
   test('Verify the percentage is displayed correctly based on the score', () => {
-    const scores = [['Frontend', 7.5], ['Backend', 5]];
-    const maxScorePerType = 10;
-    const scaledMaxTotalScore = scores.length * maxScorePerType;
+    const scores = [['Frontend Developer', 15], ['Backend Developer', 10]];
+    const maxScorePerType = 30;
 
-    const frontendPercentage = Math.round((7.5 / scaledMaxTotalScore) * 100);
-    const backendPercentage = Math.round((5 / scaledMaxTotalScore) * 100);
+    const frontendPercentage = Math.round((15 / maxScorePerType) * 100); // 50%
+    const backendPercentage = Math.round((10 / maxScorePerType) * 100); // 33%
 
     render(<Graph scores={scores} />);
 
@@ -26,17 +25,19 @@ describe('Graph Component', () => {
     expect(screen.getByText(`${backendPercentage}%`)).toBeInTheDocument();
   });
 
-  test('If there is no score, make sure the percentage is displayed as 0', () => {
-    const scores = [['Frontend', 0], ['Backend', 0]];
+  test('If there is no score, make sure the percentage is displayed as 0%', () => {
+    const scores = [['Frontend Developer', 0], ['Backend Developer', 0]];
 
     render(<Graph scores={scores} />);
 
-    expect(screen.getByText('0%')).toBeInTheDocument();
+    // getAllByText를 사용하여 0%가 두 번 나타나는지 확인
+    expect(screen.getAllByText('0%')).toHaveLength(2);
   });
 
   test('Verify that a component is empty when it is in an empty score array', () => {
     render(<Graph scores={[]} />);
 
-    expect(screen.queryByText('%')).not.toBeInTheDocument();
+    // 퍼센트 표시가 없는지 확인
+    expect(screen.queryByText(/%/)).not.toBeInTheDocument();
   });
 });

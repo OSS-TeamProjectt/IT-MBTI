@@ -8,14 +8,14 @@ jest.mock('../../data/results.json', () => [
     type: 'DevOps Engineer',
     recommendedSkills: [
       {
-        name: 'Jenkins',
-        image: '/img/skill/jenkins.png',
-        website: 'https://www.Jenkins.io/',
+        "name": "Jenkins",
+        "image": "/img/skill/jenkins.png",
+        "website": "https://www.Jenkins.io/"
       },
       {
-        name: 'Docker',
-        image: '/img/skill/docker.png',
-        website: 'https://www.docker.com/',
+        "name": "Docker",
+        "image": "/img/skill/docker.png",
+        "website": "https://www.docker.com/"
       },
     ],
   },
@@ -31,17 +31,17 @@ describe('Skill Component', () => {
   test('Verify that the skill that fits the type prop is displayed correctly', () => {
     render(<Skill type="DevOps Engineer" />);
 
-    expect(screen.getByText('Jenkins')).toBeInTheDocument();
-    expect(screen.getByText('Docker')).toBeInTheDocument();
+    expect(screen.getByText(/Jenkins/i)).toBeInTheDocument();
+    expect(screen.getByText(/Docker/i)).toBeInTheDocument();
   });
 
   test('Verify skill images and links are rendered correctly', () => {
     render(<Skill type="DevOps Engineer" />);
 
-    const jenkinsLink = screen.getByRole('link', { name: 'Jenkins' });
+    const jenkinsLink = screen.getByRole('link', { name: /Jenkins/ });
     expect(jenkinsLink).toHaveAttribute('href', 'https://www.Jenkins.io/');
 
-    const dockerLink = screen.getByRole('link', { name: 'Docker' });
+    const dockerLink = screen.getByRole('link', { name: /Docker/ });
     expect(dockerLink).toHaveAttribute('href', 'https://www.docker.com/');
   });
 

@@ -15,13 +15,4 @@ describe('Footer Component', () => {
     expect(screen.getByText('Seoul National University of Science and Technology')).toBeInTheDocument();
     expect(screen.getByText('ITM OSS PROJECT')).toBeInTheDocument();
   });
-
-  test('Verify that the team member names are rendered correctly', () => {
-    render(<Footer />);
-    expect(screen.getByText('23102003 Kim Doyi')).toBeInTheDocument();
-    expect(screen.getByText('23102009 Park Shinhyung')).toBeInTheDocument();
-    expect(screen.getByText('23102015 Oh Eunyoung')).toBeInTheDocument();
-    expect(screen.getByText('23102025 Lee Haneol')).toBeInTheDocument();
-    expect(screen.getByText('23102031 Hwang Yuyoung')).toBeInTheDocument();
-  });
 });

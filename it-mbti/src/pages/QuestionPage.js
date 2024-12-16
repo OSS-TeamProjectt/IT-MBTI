@@ -73,7 +73,9 @@ function QuestionPage() {
   return (
     <Container>
       <ProgressBarContainer>
-        <Progress percentage={((currentIndex + 1) / questions.length) * 100} />
+        <Progress percentage={((currentIndex + 1) / questions.length) * 100} 
+        role="progressbar"
+        />
       </ProgressBarContainer>
       <Questions
         questionText={questions[currentIndex].question}

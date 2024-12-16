@@ -6,7 +6,6 @@ describe('AboutModal Component', () => {
   const mockOnClose = jest.fn();
 
   beforeEach(() => {
-    // 각 테스트 실행 전 mock 함수 초기화
     mockOnClose.mockClear();
   });
 
@@ -36,4 +35,5 @@ describe('AboutModal Component', () => {
 
     expect(mockOnClose).toHaveBeenCalledTimes(1);
   });
+
 });

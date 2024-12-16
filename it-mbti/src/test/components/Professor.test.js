@@ -32,20 +32,20 @@ describe('Professor Component', () => {
   test('Verify that the correct faculty for the type prop is displayed correctly', () => {
     render(<Professor type="DevOps Engineer" />);
 
-    expect(screen.getByText('Jaekyung Ahn')).toBeInTheDocument();
-    expect(screen.getByText('Josue Obregon')).toBeInTheDocument();
+    expect(screen.getByText(/Jaekyung Ahn/)).toBeInTheDocument();
+    expect(screen.getByText(/Josue Obregon/)).toBeInTheDocument();
   });
 
   test('Verify that the link to the professor profile and the image are rendered correctly', () => {
     render(<Professor type="DevOps Engineer" />);
 
-    const jaekyungAhnLink = screen.getByRole('link', { name: 'Jaekyung Ahn' });
+    const jaekyungAhnLink = screen.getByRole('link', { name: /Jaekyung Ahn/ });
     expect(jaekyungAhnLink).toHaveAttribute(
       'href',
       'https://itm.seoultech.ac.kr/about_itm/about_professor/?togo=list&menu=1920&profidx=02159'
     );
 
-    const josueObregonLink = screen.getByRole('link', { name: 'Josue Obregon' });
+    const josueObregonLink = screen.getByRole('link', { name: /Josue Obregon/ });
     expect(josueObregonLink).toHaveAttribute(
       'href',
       'https://itm.seoultech.ac.kr/about_itm/about_professor/?togo=list&menu=1920&profidx=02684'

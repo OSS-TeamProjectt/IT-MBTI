@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Detail from '../../components/Detail';
-import results from '../../data/results.json';
+
 
 // Mocking the results data
-jest.mock('../data/results.json', () => [
+jest.mock('../../data/results.json', () => [
   {
     type: 'Frontend Developer',
     introduction: 'Develops user interfaces and client-side logic.',
@@ -28,7 +28,7 @@ describe('Detail Component', () => {
     render(<Detail type="Frontend Developer" />);
 
     expect(screen.getByText('work')).toBeInTheDocument();
-    expect(screen.getByText('JobDescription')).toBeInTheDocument();
+    expect(screen.getByText('job description')).toBeInTheDocument();
     expect(screen.getByText('related job')).toBeInTheDocument();
     expect(screen.getByText('core ability')).toBeInTheDocument();
     expect(screen.getByText('tag')).toBeInTheDocument();

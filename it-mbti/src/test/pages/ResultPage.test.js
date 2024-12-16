@@ -18,6 +18,16 @@ describe('ResultPage Component', () => {
   };
 
   test('Verify that components are rendered correctly with the highest score', () => {
+    const priorityOrder = [
+      'Frontend Developer',
+      'UI/UX Designer',
+      'Business Development Manager',
+      'IT Strategy Consultant',
+      'DevOps Engineer',
+      'Data Analyst',
+      'Backend Developer',
+    ];
+  
     render(
       <MemoryRouter initialEntries={[{ pathname: '/result', state: { scores: mockScores } }]}>
         <Routes>
@@ -25,12 +35,21 @@ describe('ResultPage Component', () => {
         </Routes>
       </MemoryRouter>
     );
-
-    expect(screen.getByTestId('cat-component')).toHaveTextContent('Frontend Developer');
-    expect(screen.getByTestId('detail-component')).toHaveTextContent('Frontend Developer');
-    expect(screen.getByTestId('graph-component')).toHaveTextContent(JSON.stringify(Object.entries(mockScores)));
-    expect(screen.getByTestId('professor-component')).toHaveTextContent('Frontend Developer');
-    expect(screen.getByTestId('skill-component')).toHaveTextContent('Frontend Developer');
+  
+    const sortedScores = Object.entries(mockScores).sort(([keyA, valueA], [keyB, valueB]) => {
+      if (valueA === valueB) {
+        return priorityOrder.indexOf(keyA) - priorityOrder.indexOf(keyB);
+      }
+      return valueB - valueA;
+    });
+  
+    const highestType = sortedScores[0][0];
+  
+    expect(screen.getByTestId('cat-component')).toHaveTextContent(highestType);
+    expect(screen.getByTestId('detail-component')).toHaveTextContent(highestType);
+    expect(screen.getByTestId('graph-component')).toHaveTextContent(JSON.stringify(sortedScores));
+    expect(screen.getByTestId('professor-component')).toHaveTextContent(highestType);
+    expect(screen.getByTestId('skill-component')).toHaveTextContent(highestType);
   });
 
   test('Verify that Next button changes the result type', () => {
@@ -46,4 +65,6 @@ describe('ResultPage Component', () => {
     expect(screen.getByTestId('cat-component')).toHaveTextContent('Frontend Developer');
 
     fireEvent.click(nextButton);
-    expect(screen.getByTestId('cat
+    expect(screen.getByTestId('cat-component')).toHaveTextContent('DevOps Engineer');
+  });
+});

@@ -24,7 +24,7 @@ const LoadingText = styled.h1`
 `;
 
 
-const Spinner = styled.div`
+const Spinner = styled.div.attrs(() => ({ 'data-testid': 'spinner' }))`
   border: 8px solid #f3f3f3;
   border-top: 8px solid #6c63ff;
   border-radius: 50%;

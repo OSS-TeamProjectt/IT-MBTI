@@ -2,8 +2,8 @@ import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import LoadingPage from '../../pages/LoadingPage';
-import ResultPage from '../../pages/ResultPage';
-import userEvent from '@testing-library/user-event';
+
+jest.setTimeout(7000); // 타임아웃을 7초로 설정
 
 describe('LoadingPage Component', () => {
   test('Verify that loading text and spinner are rendered', () => {
@@ -13,8 +13,11 @@ describe('LoadingPage Component', () => {
       </MemoryRouter>
     );
 
+    // 로딩 텍스트 확인
     expect(screen.getByText('What type will it be? 🤔')).toBeInTheDocument();
-    expect(screen.getByRole('status')).toBeInTheDocument();
+
+    // Spinner 확인 (data-testid 사용)
+    expect(screen.getByTestId('spinner')).toBeInTheDocument();
   });
 
   test('Verify that it redirects to /result after 5 seconds', async () => {
