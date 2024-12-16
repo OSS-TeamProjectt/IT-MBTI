@@ -27,7 +27,7 @@ jobs:
 
     # Navigate to project directory and install dependencies
     - name: Install dependencies
-      run: npm ci
+      run: npm install
       working-directory: ./it-mbti
 
     # Build the project if build script exists
