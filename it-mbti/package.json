@@ -6,7 +6,6 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "@testing-library/user-event": "^14.5.2",
-    "it-mbti": "file:",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.28.0",
@@ -14,10 +13,13 @@
     "styled-components": "^6.1.13",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest", 
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
