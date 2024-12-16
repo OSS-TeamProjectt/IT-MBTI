@@ -30,6 +30,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        cache-dependency-path: ./it-mbti/package-lock.json
 
     # Install dependencies using npm ci
     - run: npm ci
