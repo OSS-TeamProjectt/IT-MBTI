@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const fadeInOut = keyframes`
+  console.log(fadeInOut)
   0% { opacity: 0; }
   50% { opacity: 1; }
   100% { opacity: 0; }
@@ -42,6 +43,7 @@ function LoadingPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const scores = location.state?.scores || {};
+  console.log(scores);
 
   useEffect(() => {
     const timer = setTimeout(() => {
