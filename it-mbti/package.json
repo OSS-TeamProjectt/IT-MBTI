@@ -28,7 +28,7 @@
     "plugins": ["@babel/plugin-proposal-private-property-in-object"]
   },
   "jest": {
-    "testEnvironment": "jest-environment-jsdom"
+    "testEnvironment": "jest-environment-jsdom",
     "setupFilesAfterEnv": ["@testing-library/jest-dom/extend-expect"]
   },
   "eslintConfig": {
