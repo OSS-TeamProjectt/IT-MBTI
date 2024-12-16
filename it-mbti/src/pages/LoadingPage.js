@@ -42,8 +42,7 @@ const Spinner = styled.div.attrs(() => ({ 'data-testid': 'spinner' }))`
 function LoadingPage() {
   const navigate = useNavigate();
   const location = useLocation();
-  const scores = location.state?.scores || {};
-  console.log(scores);
+  const scores = useMemo(() => location.state?.scores || {}, [location.state?.scores]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -51,7 +50,7 @@ function LoadingPage() {
     }, 5000);
 
     return () => clearTimeout(timer);
-  }, [navigate, scores]);
+  }, [navigate, scores]); // scores is now stable due to useMemo
 
   return (
       <Page>
