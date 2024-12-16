@@ -50,7 +50,6 @@ const NavButton = styled.button`
 
 function QuestionPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [scores, setScores] = useState({});
   const navigate = useNavigate();
 
   const handleAnswer = (type, score) => {
