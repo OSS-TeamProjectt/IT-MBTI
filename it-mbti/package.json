@@ -29,7 +29,7 @@
   },
   "jest": {
     "testEnvironment": "jest-environment-jsdom",
-    "setupFilesAfterEnv": ["<rootDir>/node_modules/@testing-library/jest-dom"]
+    "setupFilesAfterEnv": ["@testing-library/jest-dom"]
   },
   "eslintConfig": {
     "extends": [
