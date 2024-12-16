@@ -1,0 +1,31 @@
+name: CI Pipeline for Unit Tests
+
+on:
+  push:
+    branches:
+      - main # Trigger when code is pushed to the main branch
+  pull_request:
+    branches:
+      - main # Trigger when a pull request is created targeting the main branch
+
+jobs:
+  test:
+    name: Run Jest Unit Tests
+    runs-on: ubuntu-latest # Use the latest version of Ubuntu as the runner environment
+
+    steps:
+    # Step 1: Checkout repository
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Step 2: Navigate to project directory
+    - name: Change to project directory
+      working-directory: ./it-mbti
+
+    # Step 3: Install dependencies
+    - name: Install dependencies
+      run: npm install
+
+    # Step 4: Run tests
+    - name: Run unit tests
+      run: npm test
