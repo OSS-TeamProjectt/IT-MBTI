@@ -23,6 +23,10 @@
     "test": "jest",
     "eject": "react-scripts eject"
   },
+  "babel": {
+    "plugins": ["@babel/plugin-proposal-private-property-in-object"]
+  },
+  
   "eslintConfig": {
     "extends": [
       "react-app",
