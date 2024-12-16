@@ -50,19 +50,21 @@ const NavButton = styled.button`
 
 function QuestionPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [scores, setScores] = useState({});
   const navigate = useNavigate();
 
   const handleAnswer = (type, score) => {
     setScores((prevScores) => {
       const updatedScores = {
         ...prevScores,
-        [type]: (prevScores[type] || 0) + score, 
+        [type]: (prevScores[type] || 0) + score,
       };
 
       if (currentIndex < questions.length - 1) {
-        setCurrentIndex(currentIndex + 1); 
+        setCurrentIndex(currentIndex + 1);
       } else {
-        navigate("/loading", { state: { scores: updatedScores } }); 
+        console.log("Final scores:", updatedScores); // scores 출력
+        navigate("/loading", { state: { scores: updatedScores } });
       }
 
       return updatedScores; 
