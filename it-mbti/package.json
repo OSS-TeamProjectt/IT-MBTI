@@ -27,7 +27,9 @@
   "babel": {
     "plugins": ["@babel/plugin-proposal-private-property-in-object"]
   },
-  
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
