@@ -14,20 +14,18 @@ jobs:
     runs-on: ubuntu-latest # Use the latest version of Ubuntu as the runner environment
 
     steps:
-    # Step 1: Check out the repository code
-    - name: Checkout code
+    # Step 1: Checkout repository
+    - name: Checkout repository
       uses: actions/checkout@v3
 
-    # Step 2: Set up Node.js environment
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16 # Specify the version of Node.js to use
+    # Step 2: Navigate to project directory
+    - name: Change to project directory
+      working-directory: ./it-mbti
 
     # Step 3: Install dependencies
     - name: Install dependencies
       run: npm install
 
-    # Step 4: Run Jest unit tests
+    # Step 4: Run tests
     - name: Run unit tests
       run: npm test
