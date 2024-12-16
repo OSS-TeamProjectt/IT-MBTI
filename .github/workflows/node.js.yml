@@ -35,6 +35,10 @@ jobs:
       run: npm run build --if-present
       working-directory: ./it-mbti
 
+    - name: Build the project
+      run: CI=false npm run build --if-present
+      working-directory: ./it-mbti
+
     # Run tests
     - name: Run tests
       run: npm test
