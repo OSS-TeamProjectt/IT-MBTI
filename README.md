@@ -7,7 +7,7 @@ IT-MBTI is a tool that analyzes the user's answers based on the MBTI test format
 
 <img alt="냐냥_1" src="https://github.com/user-attachments/assets/e790ef00-76e9-4065-9bc0-d5adbe66b401" width="260" height="180">
 <img alt="냐냥_2" src="https://github.com/user-attachments/assets/59a53c09-ad1d-4a33-babe-8739138ab1a9" width="260" height="180">
-<img alt="냐냥_3" src="https://github.com/user-attachments/assets/7755d28e-fcb3-446e-b297-684dd99d662f" width="260" height="180">
+<img alt="냐냥_3" src="https://github.com/user-attachments/assets/0e657e13-1be4-42da-9dde-83ca8f97f209" width="260" height="180">
 
 
 
