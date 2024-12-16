@@ -3,19 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.22.5",
     "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
     "@testing-library/user-event": "^14.5.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.28.0",
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.13",
+    "@babel/core": "^7.22.5",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "@babel/plugin-transform-private-property-in-object": "^7.25.9",
-    "@testing-library/react": "^16.1.0",
     "jest": "^29.0.0",
     "jest-environment-jsdom": "^29.0.0"
   },
@@ -26,15 +26,11 @@
     "eject": "react-scripts eject"
   },
   "babel": {
-    "plugins": [
-      "@babel/plugin-transform-private-property-in-object"
-    ]
+    "plugins": ["@babel/plugin-proposal-private-property-in-object"]
   },
   "jest": {
     "testEnvironment": "jest-environment-jsdom",
-    "setupFilesAfterEnv": [
-      "@testing-library/jest-dom"
-    ]
+    "setupFilesAfterEnv": ["@testing-library/jest-dom"]
   },
   "eslintConfig": {
     "extends": [
