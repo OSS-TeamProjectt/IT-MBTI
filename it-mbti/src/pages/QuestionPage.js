@@ -4,36 +4,36 @@ import styled from "styled-components";
 import Questions from "../components/Questions";
 import questions from "../data/questions.json"; 
 
-const Container = styled.div`
+const Container = styled.div
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background: linear-gradient(180deg, #E8EAF3 10%, #A0B7E1 40%, #4A79D1 90%);
-`;
+;
 
-const ProgressBarContainer = styled.div`
+const ProgressBarContainer = styled.div
   width: 80%;
   height: 20px;
   background-color: #ddd;
   border-radius: 10px;
   margin-bottom: 20px;
   overflow: hidden;
-`;
+;
 
-const Progress = styled.div`
+const Progress = styled.div
   height: 100%;
   width: ${({ percentage }) => percentage}%;
   background-color: #4A79D1;
   transition: width 0.3s ease-in-out;
-`;
+;
 
-const ButtonContainer = styled.div`
+const ButtonContainer = styled.div
   margin-top: 30px;
-`;
+;
 
-const NavButton = styled.button`
+const NavButton = styled.button
   padding: 10px 20px;
   font-size: 2rem;
   margin: 20px;
@@ -46,22 +46,27 @@ const NavButton = styled.button`
   &:hover {
     background-color: #ddd;
   }
-`;
+;
 
 function QuestionPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
 
   const handleAnswer = (type, score) => {
-    const updatedScores = {
-      [type]: score,
-    };
+    setScores((prevScores) => {
+      const updatedScores = {
+        ...prevScores,
+        [type]: (prevScores[type] || 0) + score, 
+      };
 
-    if (currentIndex < questions.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-    } else {
-      navigate("/loading", { state: { scores: updatedScores } });
-    }
+      if (currentIndex < questions.length - 1) {
+        setCurrentIndex(currentIndex + 1); 
+      } else {
+        navigate("/loading", { state: { scores: updatedScores } }); 
+      }
+
+      return updatedScores; 
+    });
   };
 
   return (
@@ -85,4 +90,3 @@ function QuestionPage() {
 }
 
 export default QuestionPage;
-
