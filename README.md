@@ -61,8 +61,7 @@ Follow the instructions below to set up the project and run it locally:
 $ git clone https://github.com/OSS-TeamProjectt/IT-MBTI.git
 $ cd it-mbti
 $ npm install
-$ npm run build
-$ npm run start
+$ npm start
 ```
 
 ---
